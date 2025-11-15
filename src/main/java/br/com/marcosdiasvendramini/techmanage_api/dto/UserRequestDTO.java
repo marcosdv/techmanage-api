@@ -20,13 +20,10 @@ public class UserRequestDTO {
     @NotBlank(message = "E-mail é obrigatório")
     private String email;
 
-    @Pattern(
-        regexp = "^\\+\\d{1,3}\\s\\d{2}\\s\\d{4,5}-\\d{4}$",
-        message = "Telefone deve estar no formato internacional, ex: +55 11 99999-9999"
-    )
+    @Pattern(regexp = "^\\+\\d{1,3}\\s\\d{2}\\s\\d{4,5}-\\d{4}$", message = "Telefone deve estar no formato internacional, ex: +55 11 99999-9999")
     private String phone;
 
-    @Past(message = "Data de nascimento inválida")
+    @Past(message = "Data de nascimento deve ser uma data passada")
     private LocalDate birthDate;
 
     @NotNull(message = "Tipo de usuário é obrigatório")
