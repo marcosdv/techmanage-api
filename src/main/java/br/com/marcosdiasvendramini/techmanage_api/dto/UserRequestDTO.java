@@ -2,16 +2,20 @@ package br.com.marcosdiasvendramini.techmanage_api.dto;
 
 import br.com.marcosdiasvendramini.techmanage_api.enums.UserType;
 import jakarta.validation.constraints.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class UserRequestDTO {
+
+    public UserRequestDTO() { }
+
+    public UserRequestDTO (String fullName, String email, String phone, LocalDate birthDate, UserType userType) {
+        this.fullName = fullName;
+        this.email = email;
+        this.phone = phone;
+        this.birthDate = birthDate;
+        this.userType = userType;
+    }
 
     @NotBlank(message = "Nome completo é obrigatório")
     private String fullName;
@@ -28,5 +32,41 @@ public class UserRequestDTO {
 
     @NotNull(message = "Tipo de usuário é obrigatório")
     private UserType userType;
+
+    // Getters and Setters
+    public String getFullName() {
+        return fullName;
+    }
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public UserType getUserType() {
+        return userType;
+    }
+    public void setUserType(UserType userType) {
+        this.userType = userType;
+    }
 
 }
